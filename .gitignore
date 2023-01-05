@@ -21,3 +21,20 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+node_modules/
+/test-results/
+/playwright-report/
+/playwright/.cache/
+.vscode/
+.husky/
+.idea/
+# dependencies
+/node_modules
+/playwright-report
+
+/tests-examples
+storageState.js
+package-lock.json
+results.xml
+storageState.json
+test-results/
