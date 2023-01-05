@@ -1,0 +1,27 @@
+{
+    "name": "sampleqaautomation-playwright",
+    "version": "1.0.0",
+    "description": "This is a sample repository to automate the https://demoqa.com/ website",
+    "main": "index.js",
+    "scripts": {},
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Tooba-afzal/SampleQAAutomation-Playwright.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Tooba-afzal/SampleQAAutomation-Playwright/issues"
+    },
+    "homepage": "https://github.com/Tooba-afzal/SampleQAAutomation-Playwright#readme",
+    "devDependencies": {
+        "@faker-js/faker": "^7.6.0",
+        "@playwright/test": "^1.29.1",
+        "dotenv": "^16.0.3",
+        "gmail-tester": "^1.3.8"
+    },
+    "dependencies": {
+        "cheerio": "^1.0.0-rc.10"
+    }
+}
