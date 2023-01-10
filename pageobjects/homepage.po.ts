@@ -9,6 +9,8 @@ export class homePage {
     readonly txtBxName: Locator;
     readonly txtBxAddress: Locator;
     readonly btnSubmit: Locator;
+    readonly menuCheckBox: Locator;
+    readonly expandButton: Locator;
 
     constructor(page: Page) {
         this.page = page;
@@ -18,10 +20,20 @@ export class homePage {
         this.txtBxAddress = page.getByPlaceholder('Current Address');
         this.btnSubmit = page.getByRole('button', { name: 'Submit' });
         this.txtBxEmail = page.locator('#userEmail');
+        this.menuCheckBox = page.getByText('Check Box');
+        this.expandButton =  page.getByRole('button', { name: 'Expand all' });
     }
 
     async clickMenuElements() {
         await this.dropdownElements.click();
+    }
+
+    async clickExpandMenu() {
+        await this.expandButton.click();
+    }
+
+    async clickMenuCheckBox() {
+        await this.menuCheckBox.click();
     }
 
     async clickSubMenuTextBox() {

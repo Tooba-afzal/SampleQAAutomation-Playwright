@@ -16,7 +16,18 @@ test.describe('Contact Info Verification Tests', () => {
         await toolsQAHomePage.enterAddress("Township")
 
         await toolsQAHomePage.clickSubmit();
+        await toolsQAHomePage.clickMenuCheckBox();
 
-        await page.pause();
+        await toolsQAHomePage.clickExpandMenu();
+
+        await page.locator('label').filter({ hasText: 'Desktop' }).locator('svg').nth(1).click();
+
+        await page.locator('label').filter({ hasText: 'Documents' }).locator('svg').nth(1).click();
+
+        await page.getByText('Radio Button').click();
+
+        await page.getByText('Yes').click();
+
+        await page.getByRole('paragraph').getByText('Yes').click();
     });
 });
