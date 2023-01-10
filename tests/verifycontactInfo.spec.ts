@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { homePage } from './pageobjects/homepage.po';
+import { homePage } from '../pageobjects/homepage.po';
 
 test.describe('Contact Info Verification Tests', () => {
     test.beforeEach(async ({ page }) => {
@@ -16,5 +16,7 @@ test.describe('Contact Info Verification Tests', () => {
         await toolsQAHomePage.enterAddress("Township")
 
         await toolsQAHomePage.clickSubmit();
+
+        await page.pause();
     });
 });
