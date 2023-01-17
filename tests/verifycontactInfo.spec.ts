@@ -19,15 +19,33 @@ test.describe('Contact Info Verification Tests', () => {
         await toolsQAHomePage.clickMenuCheckBox();
 
         await toolsQAHomePage.clickExpandMenu();
+        await toolsQAHomePage.clickdesktop();
+        await toolsQAHomePage.clickdocuments();
+        await toolsQAHomePage.clickdownloads();
 
-        await page.locator('label').filter({ hasText: 'Desktop' }).locator('svg').nth(1).click();
+        await toolsQAHomePage.clicksubmenuRadioButton();
+        await toolsQAHomePage.clicksiteFeedback();
 
-        await page.locator('label').filter({ hasText: 'Documents' }).locator('svg').nth(1).click();
+        await toolsQAHomePage.clickmenuWebTables();
+        await toolsQAHomePage.clickaddButton();
+        await toolsQAHomePage.enterFrstName('tooba')
+        await toolsQAHomePage.enterLastName('afzal')
+        await toolsQAHomePage.clickSubmitButton();
+        await toolsQAHomePage.clickcloseButton();
 
-        await page.getByText('Radio Button').click();
+        await toolsQAHomePage.clickmenuButtons();
+        await toolsQAHomePage.clicksubmenuRightclick();
+        await page.pause();
 
-        await page.getByText('Yes').click();
+        await toolsQAHomePage.clickmenuLinks();
+        await toolsQAHomePage.clicksubmenuHome();
+        await page.pause();
+        await toolsQAHomePage.clickchooseCloseButton();
+        
+        await toolsQAHomePage.clickmenuBrokenLinks();
+        await toolsQAHomePage.clicksubmenuValidLinks();
+        await page.pause();
 
-        await page.getByRole('paragraph').getByText('Yes').click();
+
     });
 });
