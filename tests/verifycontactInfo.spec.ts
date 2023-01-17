@@ -35,16 +35,12 @@ test.describe('Contact Info Verification Tests', () => {
 
         await toolsQAHomePage.clickmenuButtons();
         await toolsQAHomePage.clicksubmenuRightclick();
-        await page.pause();
 
         await toolsQAHomePage.clickmenuLinks();
         await toolsQAHomePage.clicksubmenuHome();
-        await page.pause();
-        await toolsQAHomePage.clickchooseCloseButton();
         
         await toolsQAHomePage.clickmenuBrokenLinks();
         await toolsQAHomePage.clicksubmenuValidLinks();
-        await page.pause();
 
 
     });

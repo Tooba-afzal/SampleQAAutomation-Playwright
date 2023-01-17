@@ -26,16 +26,9 @@ export class homePage {
     readonly submenuRightclick: Locator;
     readonly menuLinks: Locator;
     readonly submenuHome: Locator;
-    readonly chooseCloseButton:Locator;
+    readonly chooseCloseButton: Locator;
     readonly menuBrokenLinks: Locator;
     readonly submenuValidLinks: Locator;
-
-
-
-
-
-
-
 
     constructor(page: Page) {
         this.page = page;
@@ -62,11 +55,9 @@ export class homePage {
         this.submenuRightclick = page.getByRole('button', { name: 'Right Click Me' });
         this.menuLinks = page.getByRole('list').locator('#item-5');
         this.submenuHome = page.locator('#simpleLink');
-        this.chooseCloseButton= page.getByRole('button', { name: 'Close' });
+        this.chooseCloseButton = page.getByRole('button', { name: 'Close' });
         this.menuBrokenLinks = page.getByText('Broken Links - Images');
-        this.submenuValidLinks =  page.getByRole('link', { name: 'Click Here for Valid Link' });
-
-
+        this.submenuValidLinks = page.getByRole('link', { name: 'Click Here for Valid Link' })
     }
 
     async clickMenuElements() {
@@ -150,7 +141,6 @@ export class homePage {
         await this.closeButton.click();
     }
 
-
     async clickmenuButtons() {
         await this.menuButtons.click();
     }
@@ -162,7 +152,11 @@ export class homePage {
         await this.menuLinks.click();
     }
     async clicksubmenuHome() {
-        await this.submenuHome.click();
+        await this.page.getByRole('list').locator('#item-5').getByText('Links').click();
+        const page1Promise = this.page.waitForEvent('popup');
+        await this.page.locator('#simpleLink').click();
+        const page1 = await page1Promise;
+        await page1.close();
     }
     async clickchooseCloseButton() {
         await this.closeButton.click();
