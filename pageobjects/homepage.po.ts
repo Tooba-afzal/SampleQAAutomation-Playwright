@@ -25,10 +25,16 @@ export class homePage {
     readonly menuButtons: Locator;
     readonly submenuRightclick: Locator;
     readonly menuLinks: Locator;
-    readonly submenuHome: Locator;
+    readonly optionHome: Locator;
     readonly chooseCloseButton: Locator;
     readonly menuBrokenLinks: Locator;
-    readonly submenuValidLinks: Locator;
+    readonly optionValidLinks: Locator;
+    readonly optionBrokenLinks: Locator;
+    readonly menuUploadandDownload: Locator;
+    readonly optionDownload: Locator;
+    readonly menuDynamicProperties: Locator;
+
+
 
     constructor(page: Page) {
         this.page = page;
@@ -54,10 +60,14 @@ export class homePage {
         this.menuButtons = page.getByRole('listitem').filter({ hasText: 'Buttons' });
         this.submenuRightclick = page.getByRole('button', { name: 'Right Click Me' });
         this.menuLinks = page.getByRole('list').locator('#item-5');
-        this.submenuHome = page.locator('#simpleLink');
+        this.optionHome = page.locator('#simpleLink');
         this.chooseCloseButton = page.getByRole('button', { name: 'Close' });
         this.menuBrokenLinks = page.getByText('Broken Links - Images');
-        this.submenuValidLinks = page.getByRole('link', { name: 'Click Here for Valid Link' })
+        this.optionValidLinks = page.getByRole('link', { name: 'Click Here for Valid Link' })
+        this.optionBrokenLinks = page.getByRole('link', { name: 'Click Here for Broken Link' });
+        this.menuUploadandDownload = page.getByRole('listitem').filter({ hasText: 'Upload and Download' });
+        this.optionDownload = page.getByRole('link', { name: 'Download' });
+        this.menuDynamicProperties =  page.getByText('Dynamic Properties');
     }
 
     async clickMenuElements() {
@@ -151,7 +161,7 @@ export class homePage {
     async clickmenuLinks() {
         await this.menuLinks.click();
     }
-    async clicksubmenuHome() {
+    async clickoptionHome() {
         await this.page.getByRole('list').locator('#item-5').getByText('Links').click();
         const page1Promise = this.page.waitForEvent('popup');
         await this.page.locator('#simpleLink').click();
@@ -165,12 +175,29 @@ export class homePage {
     async clickmenuBrokenLinks() {
         await this.menuBrokenLinks.click();
     }
-    async clicksubmenuValidLinks() {
-        await this.submenuValidLinks.click();
+    async clickoptionValidLinks() {
+        await this.optionValidLinks.click();
+
+    }
+    async clickoptionBrokenLinks() {
+        await this.page.goto('https://demoqa.com/broken');
+        await this.optionBrokenLinks.click();
+        await this.page.goto('https://demoqa.com/broken');
+
     }
 
+    async clickmenuUploadandDownload() {
+        await this.menuUploadandDownload.click();
+    }
+    async clickoptionDownload() {
+        const downloadPromise = this.page.waitForEvent('download');
+        await this.page.getByRole('link', { name: 'Download' }).click();
+        const download = await downloadPromise;
+    }
 
-
+    async clickmenuDynamicProperties() {
+        await this.menuDynamicProperties.click();
+    }
 
 
 }

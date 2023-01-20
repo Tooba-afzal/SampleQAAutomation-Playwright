@@ -7,7 +7,8 @@ test.describe('Contact Info Verification Tests', () => {
     });
     test('My Final Test', async ({ page }) => {
         const toolsQAHomePage = new homePage(page);
-        await toolsQAHomePage.clickMenuElements();
+        await expect(page).toHaveURL('https://demoqa.com/')
+        await expect(toolsQAHomePage.clickMenuElements).toBeDefined();
 
         await toolsQAHomePage.clickSubMenuTextBox();
         await toolsQAHomePage.enterName('Mustafa');
@@ -37,10 +38,20 @@ test.describe('Contact Info Verification Tests', () => {
         await toolsQAHomePage.clicksubmenuRightclick();
 
         await toolsQAHomePage.clickmenuLinks();
-        await toolsQAHomePage.clicksubmenuHome();
-        
+        await toolsQAHomePage.clickoptionHome();
+
         await toolsQAHomePage.clickmenuBrokenLinks();
-        await toolsQAHomePage.clicksubmenuValidLinks();
+        await toolsQAHomePage.clickoptionValidLinks();
+        await toolsQAHomePage.clickoptionBrokenLinks();
+
+        await toolsQAHomePage.clickmenuUploadandDownload();
+        await toolsQAHomePage.clickoptionDownload();
+
+        await toolsQAHomePage.clickmenuDynamicProperties();
+        await page.pause();
+
+
+
 
 
     });
