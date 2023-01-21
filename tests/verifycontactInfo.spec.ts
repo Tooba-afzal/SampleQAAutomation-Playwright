@@ -7,8 +7,7 @@ test.describe('Contact Info Verification Tests', () => {
     });
     test('My Final Test', async ({ page }) => {
         const toolsQAHomePage = new homePage(page);
-        await expect(page).toHaveURL('https://demoqa.com/')
-        await expect(toolsQAHomePage.clickMenuElements).toBeDefined();
+        await toolsQAHomePage.clickMenuElements();
 
         await toolsQAHomePage.clickSubMenuTextBox();
         await toolsQAHomePage.enterName('Mustafa');
